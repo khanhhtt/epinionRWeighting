@@ -83,6 +83,8 @@ validate_weight_matrix <- function(df, df_weight_matrix) {
   }
 
   # Check sum of each weight dim
+  require(dplyr)
+
   df_weight_matrix <- df_weight_matrix %>%
     group_by(weight_var) %>%
     mutate(weight_total = sum(weight_value, na.rm = TRUE)) %>%
@@ -118,6 +120,10 @@ validate_weight_matrix <- function(df, df_weight_matrix) {
 epinion_weighting_tool <- function(data_input, weight_matrix_file,
                                    unique_id_var,
                                    fileEncoding = "UTF-8") {
+
+  require(dplyr)
+  require(anesrake)
+
   # Get data and weight matrix
   df <- epinion_read_data(data_input) %>%
     as.data.frame()
