@@ -121,8 +121,8 @@ epinion_weighting_tool <- function(data_input, weight_matrix_file,
                                    unique_id_var,
                                    fileEncoding = "UTF-8") {
 
-  require(dplyr)
-  require(anesrake)
+  if (!require("pacman")) install.packages("pacman")
+  pacman::p_load(dplyr, anesrake)
 
   # Get data and weight matrix
   df <- epinion_read_data(data_input) %>%
