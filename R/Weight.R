@@ -184,4 +184,3 @@ epinion_weighting_tool <- function(data_input, weight_matrix_file,
   df
 
 }
-
