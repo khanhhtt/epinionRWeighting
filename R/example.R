@@ -6,8 +6,8 @@
 #' @param file Name of file. If `NULL`, the example files will be listed.
 #' @export
 #' @examples
-#' epinionSampleCleaning_example()
-#' epinionSampleCleaning_example("sample_test.xlsx")
+#' example()
+#' example("sample_test.xlsx")
 
 example <- function(file = NULL) {
   if (is.null(file)) {

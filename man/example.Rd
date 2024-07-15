@@ -14,6 +14,6 @@ epinionRWeighting comes bundled with a number of sample files in its `inst/extda
 directory. This function make them easy to access
 }
 \examples{
-epinionSampleCleaning_example()
-epinionSampleCleaning_example("sample_test.xlsx")
+example()
+example("sample_test.xlsx")
 }
