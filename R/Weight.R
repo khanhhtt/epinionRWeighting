@@ -10,7 +10,7 @@
 #' @param ... Additional arguments may apply.
 #' @return A dataframe of data input
 #' @examples
-#' data_test <- epinion_read_data(file = example("sample_test.xlsx"), cols = c("gruppe", "runde"))
+#' data_test <- epinion_read_data(file = example("sample_test.xlsx"), cols = c("bagg2_rc", "bagg3_rc", "kommum_03"))
 #' data_test_sav <- epinion_read_data(file = example("sample_test.sav"))
 
 epinion_read_data <- function(file, header = TRUE, sep = ";", fileEncoding = "UTF-16LE" , cols = everything(), ...){
