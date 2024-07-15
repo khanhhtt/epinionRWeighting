@@ -12,7 +12,7 @@ epinion_weighting_tool(
 )
 }
 \arguments{
-\item{data_input}{the name of the file which the data are to be read from.}
+\item{data_input}{data to be weighted (dataframe).}
 
 \item{weight_matrix_file}{weight matrix (.txt file).}
 
@@ -27,7 +27,9 @@ A data with weight variable included
 This function used to weigh the data so that it could meet the distribution of population's demographics.
 }
 \examples{
-data_weighted <- epinion_weighting_tool(data_input = example("sample_test.sav"),
+data_test_sav <- epinion_read_data(file = example("sample_test.sav")) \%>\%
+as.data.frame()
+data_weighted <- epinion_weighting_tool(data_input = data_test_sav,
 weight_matrix_file = example("Weight matrix.txt"),
 unique_id_var = "RespId")
 }

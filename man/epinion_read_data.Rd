@@ -32,6 +32,6 @@ This function reads different type of data input (xlsx, csv, rds, sav, txt, sas)
 It also allows users to choose only the required variables for data processing.
 }
 \examples{
-data_test <- epinion_read_data(file = epinionWeighting_example("sample_test.xlsx"))
-data_test_sav <- epinion_read_data(file = epinionWeighting_example("sample_test.sav"), cols = c("gruppe", "runde"))
+data_test <- epinion_read_data(file = example("sample_test.xlsx"), cols = c("gruppe", "runde"))
+data_test_sav <- epinion_read_data(file = example("sample_test.sav"))
 }

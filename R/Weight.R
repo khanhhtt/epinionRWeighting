@@ -10,8 +10,8 @@
 #' @param ... Additional arguments may apply.
 #' @return A dataframe of data input
 #' @examples
-#' data_test <- epinion_read_data(file = epinionWeighting_example("sample_test.xlsx"))
-#' data_test_sav <- epinion_read_data(file = epinionWeighting_example("sample_test.sav"), cols = c("gruppe", "runde"))
+#' data_test <- epinion_read_data(file = example("sample_test.xlsx"), cols = c("gruppe", "runde"))
+#' data_test_sav <- epinion_read_data(file = example("sample_test.sav"))
 
 epinion_read_data <- function(file, header = TRUE, sep = ";", fileEncoding = "UTF-16LE" , cols = everything(), ...){
 
@@ -107,13 +107,15 @@ validate_weight_matrix <- function(df, df_weight_matrix) {
 #'
 #' This function used to weigh the data so that it could meet the distribution of population's demographics.
 #'
-#' @param data_input the name of the file which the data are to be read from.
+#' @param data_input data to be weighted (dataframe).
 #' @param weight_matrix_file weight matrix (.txt file).
 #' @param unique_id_var variable used to identify each case as a unique in the data.
 #' @param fileEncoding character string declares the encoding used on the weight_matrix_file.
 #' @return A data with weight variable included
 #' @examples
-#' data_weighted <- epinion_weighting_tool(data_input = example("sample_test.sav"),
+#' data_test_sav <- epinion_read_data(file = example("sample_test.sav")) %>%
+#' as.data.frame()
+#' data_weighted <- epinion_weighting_tool(data_input = data_test_sav,
 #' weight_matrix_file = example("Weight matrix.txt"),
 #' unique_id_var = "RespId")
 
@@ -125,8 +127,7 @@ epinion_weighting_tool <- function(data_input, weight_matrix_file,
   pacman::p_load(dplyr, anesrake)
 
   # Get data and weight matrix
-  df <- epinion_read_data(data_input) %>%
-    as.data.frame()
+  df <- data_input
 
   weight_matrix <- epinion_read_data(weight_matrix_file,
                                      header = FALSE,
